@@ -1,4 +1,4 @@
-# APIX
+# APIX 
 
 > API Security Tester — modular API security testing with endpoint discovery, auth bypass, IDOR and rate limit checks.
 
