@@ -1,0 +1,4 @@
+# APIX has no required third-party dependencies — everything it uses
+# (urllib, ssl, concurrent.futures, cmd, json, argparse...) is in the
+# Python 3.10+ standard library. This file exists so the project still
+# looks/behaves like a normal installable Python package.

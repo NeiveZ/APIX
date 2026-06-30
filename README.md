@@ -143,6 +143,33 @@ APIX/
 
 ---
 
+---
+
+## Development
+
+[#development](#development)
+
+```
+git clone https://github.com/NeiveZ/APIX.git
+cd APIX
+pip install -r requirements-dev.txt --break-system-packages
+pytest                       # 28 tests, pure logic — no network needed
+ruff check .                 # lint
+
+# Scriptable / CI mode — no interactive shell needed
+python3 apix.py -m api/fuzz -s TARGET=https://api.example.com -s METHODS=GET,POST -f json -o scan.json
+```
+
+GitHub Actions runs lint + the full test suite on every push (Python 3.10/3.11/3.12).
+Shell logic (`use`/`set`/`run`/`show`/`report`) lives in `core/base_shell.py` and is shared
+with [HSHX](https://github.com/NeiveZ/HSHX) so both tools stay consistent.
+
 ## Legal
 
 For use only on systems you own or have explicit written authorization to test.
+
+Beyond the platforms you test, treat any data captured during an engagement (tokens, password
+hashes, PII) as sensitive: store it only for the duration of the assessment, scope `reports/`
+out of anything you share publicly, and handle it in line with applicable law — in Brazil,
+unauthorized access falls under Lei 12.737/2012 (Lei Carolina Dieckmann), and any personal
+data collected is subject to the LGPD (Lei 13.709/2018).
